@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
+import Filmecard from './Filmcard.js';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -53,6 +54,7 @@ export default function Searchbar() {
     function showFilmCard(searchInput, apiBool, movies) {
         if (!apiBool)
             return <h3>API offline</h3>;
+        return <Filmecard movies={movies}></Filmecard>;
 
 
     }
