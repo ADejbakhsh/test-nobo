@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
       position: "fixed",
       backgroundColor: "#3f51b5",
       width: "100%",
+      zIndex: 10,
       // Je comprend pas trop l'interet du Bottom navigation sur le coups
     },
     title: {
