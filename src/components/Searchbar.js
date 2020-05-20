@@ -13,9 +13,8 @@ const useStyles = makeStyles((theme) => ({
     },
     wrapfilmcss: {
         display: 'flex',
-        flexDirection: 'column',
-        width: '100%',
-        flexGrow: 1,
+        justifyContent: 'center',
+        flexFlow: 'row wrap'
     },
 }));
 

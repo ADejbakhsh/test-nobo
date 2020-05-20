@@ -10,11 +10,12 @@ class Filmcard extends React.Component {
     render() {
         /* Début du Css */
         const cardcss = {
-            margin: 1,
+            margin: "20pt",
             flexDirection: 'row',
             flexWrap: 'wrap',
             justifyContent: 'space-evenly',
-            width: '200pt',
+            width: '210pt',
+            flexBasis: 'auto',
         };
 
         const titlecss = {
