@@ -54,6 +54,10 @@ export default function Searchbar() {
     function showFilmCard(searchInput, apiBool, movies) {
         if (!apiBool)
             return <h3>API offline</h3>;
+        if ( searchInput === undefined || searchInput.length === 0)
+            return <h1>Type something to find movies</h1>
+        if (movies.length === 0 || movies === undefined)
+            return <h1>Not finding what you are looking for </h1>
         return <Filmecard movies={movies}></Filmecard>;
 
 
@@ -66,7 +70,6 @@ export default function Searchbar() {
                 label="Search field"
                 type="search"
                 variant="outlined"
-                value={searchInput}
                 onChange={handleChange}
             />
             {showFilmCard(searchInput, apiBool, movies)}
