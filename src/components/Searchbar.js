@@ -11,6 +11,12 @@ const useStyles = makeStyles((theme) => ({
             width: '25ch',
         },
     },
+    wrapfilmcss: {
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100%',
+        flexGrow: 1,
+    },
 }));
 
 
@@ -58,7 +64,7 @@ export default function Searchbar() {
             return <h1>Type something to find movies</h1>
         if (movies.length === 0 || movies === undefined)
             return <h1>Not finding what you are looking for </h1>
-        return <Filmecard movies={movies}></Filmecard>;
+        return  <div className={classes.wrapfilmcss}><Filmecard cla movies={movies}></Filmecard> </div>;
 
 
     }
@@ -75,4 +81,13 @@ export default function Searchbar() {
             {showFilmCard(searchInput, apiBool, movies)}
         </form>
     );
+}
+
+
+
+const root = {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    flexGrow: 1,
 }

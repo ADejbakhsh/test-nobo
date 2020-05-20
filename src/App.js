@@ -14,7 +14,6 @@ function App() {
       <BrowserRouter>
       <Layout></Layout>
       <Route exact path="/" component={Searchbar} />
-
       </BrowserRouter>
     </div>
   );

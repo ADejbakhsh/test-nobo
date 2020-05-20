@@ -8,6 +8,36 @@ import Typography from '@material-ui/core/Typography';
 
 class Filmcard extends React.Component {
     render() {
+        /* Début du Css */
+        const cardcss = {
+            margin: 1,
+            flexDirection: 'row',
+            flexWrap: 'wrap',
+            justifyContent: 'space-evenly',
+            width: '200pt',
+        };
+
+        const titlecss = {
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            color: '#cd4436',
+        };
+
+        const containercss = {
+            display: 'flex',
+            flexGrow: 1,
+            flexDirection: 'column',
+            width: '30vw',
+            minHeight: '0px',
+            minWidth: '280px',
+            maxHeight: '480px',
+            maxWidth: '300px',
+            textAlign: 'center',
+            textDecoration: 'none',
+        };
+
+        /* Fin du css */
         const cards = [];
         if (this.props.movies) {
             this.props.movies.forEach(element => {
@@ -18,22 +48,21 @@ class Filmcard extends React.Component {
                 else
                     img = "https://www.labaleine.fr/sites/default/files/image-not-found.jpg";
                 cards.push(
-                    <Card>
-                        <CardActionArea>
+                    <Card style={cardcss} raised={true}>
+                        <CardActionArea style={containercss}>
                             <CardMedia
                                 component="img"
                                 image={img}
                                 title={name}
                             />
                             <CardContent>
-                                <Typography gutterBottom variant="h5" component="h2">
+                                <Typography style={titlecss} gutterBottom variant="h5" component="h2">
                                     {name}
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
                     </Card>
                 );
-
             });
         }
         return (cards);
