@@ -6,13 +6,13 @@ import { useParams } from 'react-router';
 
 
 export default function Searchbar() {
-    
+
     const { id } = useParams();
     const [movieInfo, setMovieInfo] = React.useState([]);
 
     useEffect(() => {
 
-        fetch("https://api.tvmaze.com/search/shows/" + id)
+        fetch("https://cors-anywhere.herokuapp.com/https://api.tvmaze.com/shows/" + id)
             .then(res => res.json())
             .then(
                 (result) => {
