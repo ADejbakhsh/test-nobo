@@ -2,6 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
+import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -9,7 +11,11 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+    color: "white"
   },
+  link: {
+    textDecoration: "none"
+  }
 }));
 
 export default function Navbar() {
@@ -18,9 +24,11 @@ export default function Navbar() {
   return (
     <div className={classes.root}>
       <AppBar position="static">
+        <Link className={classes.link} to="/">
           <Typography variant="h6" className={classes.title}>
             Header
           </Typography>
+        </Link>
       </AppBar>
     </div>
   );
