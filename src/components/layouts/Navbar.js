@@ -26,7 +26,7 @@ export default function Navbar() {
       <AppBar position="static">
         <Link className={classes.link} to="/">
           <Typography variant="h6" className={classes.title}>
-            Header
+            Home
           </Typography>
         </Link>
       </AppBar>
