@@ -10,7 +10,7 @@ export default function Filmpage() {
     let toprint = [];
     useEffect(() => {
 
-        fetch("https://cors-anywhere.herokuapp.com/https://api.tvmaze.com/shows/" + id)
+        fetch("https://api.tvmaze.com/shows/" + id)
             .then(res => res.json())
             .then(
                 (result) => {
