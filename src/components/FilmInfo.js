@@ -12,8 +12,13 @@ class FilmInfo extends React.Component {
             width: "238pt"
         };
 
-        const titlecss = {
+        const containercss = {
+            marginBottom: "25pt"
 
+        };
+
+        const genrecss = {
+            margin: "2pt"
         };
 
         const summarycss = {
@@ -49,7 +54,7 @@ class FilmInfo extends React.Component {
         {
             movieInfo["genres"].forEach(element => {
                 genre.push(
-                <Button variant="contained" color="secondary" key={element}> {element}</Button>
+                <Button variant="contained" color="secondary" style={genrecss} key={element}> {element}</Button>
                 );
                 
             });
@@ -62,7 +67,7 @@ class FilmInfo extends React.Component {
             status = " and is currently " + movieInfo["status"] + ".\n";
         else
             status = " and it's maybe running? Honestly we have no idea.\n";
-        if (movieInfo["rating"])
+        if (movieInfo["rating"] && movieInfo["rating"]["average"] !== null )
             rating = " It has rating of " + movieInfo["rating"]["average"];
         else
             rating = "We can't find any rating";
@@ -71,9 +76,9 @@ class FilmInfo extends React.Component {
         else 
             country = " .";
         return (
-            <Container>
+            <Container style={containercss}>
                 <img style={imgcss} src={img}></img>
-                <Typography style={titlecss} variant="h5" >
+                <Typography variant="h5" >
                     {movieInfo["name"]}
                 </Typography>
                 <Typography style={summarycss} align="justify" variante="body1">
