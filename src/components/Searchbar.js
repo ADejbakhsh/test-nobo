@@ -81,12 +81,3 @@ export default function Searchbar() {
         </form>
     );
 }
-
-
-
-const root = {
-    display: 'flex',
-    flexDirection: 'column',
-    width: '100%',
-    flexGrow: 1,
-}

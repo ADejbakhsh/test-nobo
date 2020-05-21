@@ -4,6 +4,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { Link } from 'react-router-dom';
 
 
 class Filmcard extends React.Component {
@@ -21,8 +22,7 @@ class Filmcard extends React.Component {
         const titlecss = {
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center',
-            color: '#cd4436',
+            alignItems: 'center'
         };
 
         const containercss = {
@@ -43,13 +43,16 @@ class Filmcard extends React.Component {
         if (this.props.movies) {
             this.props.movies.forEach(element => {
                 let name = element["show"]["name"];
+                let id = element["show"]["id"];
                 let img;
                 if (element["show"]["image"])
-                    img = element["show"]["image"]["medium"];
+                    img = element["show"]["image"]["original"];
                 else
                     img = "https://www.labaleine.fr/sites/default/files/image-not-found.jpg";
                 cards.push(
-                    <Card style={cardcss} raised={true}>
+                    
+                    <Card style={cardcss} raised={true} key={id}>
+                        <Link to={"/" + id} >
                         <CardActionArea style={containercss}>
                             <CardMedia
                                 component="img"
@@ -62,6 +65,7 @@ class Filmcard extends React.Component {
                                 </Typography>
                             </CardContent>
                         </CardActionArea>
+                        </Link>
                     </Card>
                 );
             });
