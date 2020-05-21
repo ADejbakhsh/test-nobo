@@ -1,15 +1,13 @@
-import React,  { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useParams } from 'react-router';
+import FilmInfo from './FilmInfo.js';
 
 
 
-
-
-export default function Searchbar() {
-
+export default function Filmpage() {
     const { id } = useParams();
     const [movieInfo, setMovieInfo] = React.useState([]);
-
+    let toprint = [];
     useEffect(() => {
 
         fetch("https://cors-anywhere.herokuapp.com/https://api.tvmaze.com/shows/" + id)
@@ -22,17 +20,12 @@ export default function Searchbar() {
                 })
     }, []);
 
+    if (movieInfo !== undefined) {
+        toprint.push( 
+            <FilmInfo movieInfo={movieInfo} key="unique" ></FilmInfo>);
+    }
+    else
+        toprint.push(<h1>all good {id}</h1>);
 
-    /* 
-        image (si ya)
-        nom
-        country (si ya)
-        genre (si il y a)
-        status
-        anné de debut
-        rating (si ya)
-        summary
-     */
-
-    return <h1>all good {id}</h1>
+    return toprint
 }
